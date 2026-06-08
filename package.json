@@ -1,0 +1,13 @@
+{
+  "name": "librix",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "repository": "https://github.com/jvopinho/librix.git",
+  "author": "João Pinho <jvopinho@sypos.com.br>",
+  "license": "MIT"
+}
