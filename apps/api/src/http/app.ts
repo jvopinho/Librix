@@ -1,7 +1,5 @@
 import express from 'express'
 
-import { User } from '@librix/types'
-
 export const app = express()
 
 app.get('/', (req, res) => {

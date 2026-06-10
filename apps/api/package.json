@@ -1,0 +1,42 @@
+{
+  "name": "@librix/api",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -b",
+    "start": "node dist/index.js",
+    "db:generate": "dotenv -e .env -- sequelize-cli migration:generate --name $1",
+    "db:migrate": "dotenv -e .env -- sequelize-cli db:migrate"
+  },
+  "dependencies": {
+    "@librix/flags": "*",
+    "@librix/types": "1.0.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "pg": "^8.21.0",
+    "sequelize": "^6.37.8",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@types/express": "*",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/pg": "^8.20.0",
+    "dotenv-cli": "^11.0.0",
+    "eslint": "^10.4.1",
+    "eslint-plugin-import-helpers": "^2.0.2",
+    "eslint-plugin-unused-imports": "^4.4.1",
+    "globals": "^17.6.0",
+    "sequelize-cli": "^6.6.5",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.61.0"
+  }
+}
