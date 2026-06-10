@@ -1,0 +1,19 @@
+{
+    "name": "@librix/flags",
+    "version": "1.0.0",
+    "private": true,
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "build": "tsup src/index.ts --format cjs,esm --dts"
+    },
+    "dependencies": {
+        "@librix/types": "^1.0.0",
+        "sybits": "1.0.2"
+    },
+    "devDependencies": {
+        "tsup": "^8.5.1",
+        "typescript": "^6.0.3"
+    },
+    "license": "MIT"
+}

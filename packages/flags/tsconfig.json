@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    /* Output */
+    "outDir": "dist",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    /* Target */
+    "target": "es2022",
+    "lib": ["ES2022"],
+    "module": "CommonJS",
+
+    "ignoreDeprecations": "6.0"
+
+    // /* Strictness */
+    // "strict": true,
+    // "noImplicitAny": true,
+    // "strictNullChecks": true,
+    // "noUncheckedIndexedAccess": true,
+
+    // /* Safety */
+    // "noFallthroughCasesInSwitch": true,
+    // "forceConsistentCasingInFileNames": true,
+
+    // /* Interop */
+    // "esModuleInterop": true,
+    // "allowSyntheticDefaultImports": true,
+
+    // /* Build quality */
+    // "skipLibCheck": true,
+    // "isolatedModules": true,
+
+    // /* BigInt support */
+    // "useDefineForClassFields": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "tests"]
+}
