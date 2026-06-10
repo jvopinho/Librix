@@ -7,6 +7,9 @@
     "apps/*",
     "packages/*"
   ],
+  "scripts": {
+    "compose:dev:up": "docker compose -f docker-compose.dev.yml --env-file apps/api/.env up -d"
+  },
   "repository": "https://github.com/jvopinho/librix.git",
   "author": "João Pinho <jvopinho@sypos.com.br>",
   "license": "MIT"
