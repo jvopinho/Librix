@@ -14,7 +14,12 @@ export const EnvSchema = z.object({
   POSTGRES_PORT: z.coerce.number().default(5432),
   POSTGRES_ENDPOINT: z.string().default('localhost:5432'),
 
-  SESSION_JWT_SECRET: z.string(),
+  RESEND_API_KEY: z.string(),
+
+  JWT_SESSION_SECRET: z.string(),
+  JWT_FIRST_ACCESS_SECRET: z.string(),
   PASSWORD_SALT_ROUNDS: z.coerce.number().default(10),
+
+  WEB_URL: z.string().default('http://localhost:5173'),
 })
 export type EnvSchema = z.infer<typeof EnvSchema>

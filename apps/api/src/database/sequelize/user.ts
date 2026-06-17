@@ -18,7 +18,7 @@ export class User extends Model<
 
   declare email: string
 
-  declare passwordHash: string
+  declare passwordHash: string | null
 
   declare features: bigint
 }
@@ -41,7 +41,7 @@ User.init(
     },
     passwordHash: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     features: {
       type: DataTypes.BIGINT,
@@ -52,5 +52,7 @@ User.init(
   {
     sequelize,
     tableName: 'users',
+    createdAt: false,
+    updatedAt: false,
   },
 )

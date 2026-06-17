@@ -1,0 +1,153 @@
+@import '../../../../styles/variables.scss';
+
+.page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+
+  background: $background;
+}
+
+.card {
+  width: 100%;
+  max-width: 520px;
+
+  padding: 3rem 2.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+
+  background: white;
+
+  border: 1px solid $border;
+  border-radius: 24px;
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.iconWrapper {
+  width: 88px;
+  height: 88px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 2rem;
+
+  border-radius: 50%;
+
+  background: #fef3c7;
+  color: #d97706;
+
+  svg {
+    width: 42px;
+    height: 42px;
+    stroke-width: 2.2;
+  }
+}
+
+.content {
+  h1 {
+    margin: 0;
+
+    color: $text-primary;
+
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  p {
+    margin-top: 1rem;
+
+    color: $text-secondary;
+
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+}
+
+.actions {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  margin-top: 2.5rem;
+}
+
+.button {
+  height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  padding: 0 1.25rem;
+
+  border: none;
+  border-radius: 12px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.primary {
+  background: $primary;
+  color: white;
+
+  &:hover {
+    background: $primary-dark;
+  }
+}
+
+.secondary {
+  background: #f1f5f9;
+  color: #475569;
+
+  &:hover {
+    background: #e2e8f0;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 2rem 1.5rem;
+  }
+
+  .content {
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

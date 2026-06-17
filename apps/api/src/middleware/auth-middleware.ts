@@ -26,7 +26,7 @@ async function authenticate(authHeader: string): Promise<[true, User] | [false, 
   let token: { user_id: number }
 
   try {
-    token = jwt.verify(authHeader, env.SESSION_JWT_SECRET) as typeof token
+    token = jwt.verify(authHeader, env.JWT_SESSION_SECRET) as typeof token
   } catch (err) {
     return [false, { 
       status: 401, 

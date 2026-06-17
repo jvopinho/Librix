@@ -8,7 +8,8 @@
     "packages/*"
   ],
   "scripts": {
-    "compose:dev:up": "docker compose -f docker-compose.dev.yml --env-file apps/api/.env up -d"
+    "compose:dev:up": "docker compose -f docker-compose.dev.yml --env-file apps/api/.env up -d",
+    "compose:dev:start": "docker compose -f docker-compose.dev.yml --env-file apps/api/.env start"
   },
   "repository": "https://github.com/jvopinho/librix.git",
   "author": "João Pinho <jvopinho@sypos.com.br>",

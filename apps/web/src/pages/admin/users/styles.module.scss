@@ -1,0 +1,334 @@
+@import '../../../styles/variables.scss';
+
+.users-page {
+  min-height: 100vh;
+  padding: 2rem;
+  background: $background;
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+
+  h1 {
+    margin: 0;
+    color: $text-primary;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  p {
+    margin-top: 0.5rem;
+    color: $text-secondary;
+  }
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  input {
+    width: 320px;
+    height: 42px;
+
+    padding: 0 1rem;
+
+    border: 1px solid $border;
+    border-radius: 12px;
+
+    font-size: 0.9rem;
+    background: white;
+
+    transition: all 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba(37, 50, 89, 0.08);
+    }
+  }
+}
+
+.primary-button {
+  height: 42px;
+
+  padding: 0 1rem;
+
+  border: none;
+  border-radius: 12px;
+
+  background: $primary;
+  color: white;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $primary-dark;
+  }
+}
+
+.table-container {
+  background: white;
+
+  border: 1px solid $border;
+  border-radius: 18px;
+
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f8fafc;
+
+  th {
+    height: 56px;
+    padding: 0 1.5rem;
+
+    text-align: left;
+
+    color: $text-secondary;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    border-bottom: 1px solid $border;
+  }
+
+  // Indicador de ativação
+  th:nth-child(1) {
+    width: 40px;
+    padding: 0;
+  }
+
+  // Nome
+  th:nth-child(2) {
+    width: 38%;
+    padding-left: 0;
+  }
+
+  // Email
+  th:nth-child(3) {
+    width: calc(62% - 200px);
+  }
+
+  // Ações
+  th:nth-child(4) {
+    width: 200px;
+  }
+}
+
+tbody {
+  tr {
+    height: 68px;
+
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #fafbfd;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #f1f5f9;
+    }
+  }
+
+  td:nth-child(2) {
+    padding-left: 0;
+  }
+
+  td {
+    padding: 0 1.5rem;
+
+    color: $text-primary;
+    font-size: 0.9rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    vertical-align: middle;
+  }
+}
+
+td input {
+  width: 100%;
+  height: 38px;
+
+  padding: 0 0.75rem;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+
+  background: white;
+
+  font-size: 0.9rem;
+
+  box-sizing: border-box;
+
+  transition: all 0.2s ease;
+
+  color: $text-primary;
+
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba(37, 50, 89, 0.08);
+  }
+}
+
+.permissions-button {
+  height: 36px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+
+  padding: 0 0.75rem;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  &:hover {
+    background: #dbeafe;
+  }
+}
+
+.row-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 0.35rem;
+}
+
+.icon-button {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &.edit {
+    background: $primary-light;
+    color: $primary;
+
+    &:hover {
+      background: #dbe4ff;
+    }
+  }
+
+  &.save {
+    background: #dcfce7;
+    color: #166534;
+
+    &:hover {
+      background: #bbf7d0;
+    }
+  }
+
+  &.delete {
+    background: #fee2e2;
+    color: #dc2626;
+
+    &:hover {
+      background: #fecaca;
+    }
+  }
+
+  &.cancel {
+    background: #f1f5f9;
+    color: #475569;
+
+    &:hover {
+      background: #e2e8f0;
+    }
+  }
+}
+
+td.name,
+td.email {
+  text-align: left;
+}
+
+td.status {
+    width: 40px;
+    height: 100%;
+    // background-color: greenyellow;
+
+    padding: 0 !important;
+
+    text-align: center;
+
+    svg {
+        color: #f59e0b;
+        stroke-width: 2.2;
+        margin: auto;
+        display: flex;
+    }
+}
+
+td.name {
+  font-size: 16px;
+  font-weight: 500;
+  color: $text-primary;
+}
+
+@media (max-width: 1024px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 850px;
+  }
+}   
