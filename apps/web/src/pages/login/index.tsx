@@ -28,18 +28,18 @@ export function Login() {
     .then(async(response) => {
       if (!response.ok) {
         const [_error, data] = await pcall(() => response.json())
-        
+
         throw new Error(data?.message || 'Falha ao realizar login.\nTente novamente mais tarde.')
       }
 
       return response.json()
     })
     .then((data) => {
-      setCookie('access_token', data.access_token, 0.3)
+      setCookie('session_token', data.session_token, 0.3)
 
       alert('Login realizado com sucesso! Redirecionando...')
       
-      window.location.href = '/'
+      window.location.href = '/home'
     })
     .catch((error) => {
       alert(error.message)

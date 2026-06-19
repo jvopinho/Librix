@@ -10,6 +10,7 @@ export const setupRoutes = (app: Express) => {
 
   usersRouter.post('/', usersController.createUser.bind(usersController) as Application)
   usersRouter.get('/', usersController.listUsers.bind(usersController) as Application)
+  usersRouter.get('/@me', usersController.getCurrentUser.bind(usersController) as Application)
   usersRouter.patch('/:id', usersController.editUser.bind(usersController) as Application)
   usersRouter.delete('/:id', usersController.deleteUser.bind(usersController) as Application)
 

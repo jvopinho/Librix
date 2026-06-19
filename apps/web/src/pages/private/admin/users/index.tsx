@@ -1,6 +1,6 @@
 import type { APIUser } from "@librix/types"
 import { useEffect, useState } from "react"
-import { getApiUrl } from "../../../helpers/api-url"
+import { getApiUrl } from "../../../../helpers/api-url"
 import { UsersToolbar } from "./tool-bar"
 import { UserTable } from "./table"
 

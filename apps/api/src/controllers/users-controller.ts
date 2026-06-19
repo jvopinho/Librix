@@ -15,6 +15,7 @@ import { APIUser } from '@librix/types'
 import { EditUserBody } from '@/schemas/edit-user'
 import { Op } from 'sequelize'
 import { UserFeatures, UserFeaturesByRole } from '@librix/flags'
+import { AuthMiddleware } from '@/middleware/auth-middleware'
 
 export class UsersController {
   // @AuthMiddleware({ features: ['create:users'] })
@@ -82,6 +83,18 @@ export class UsersController {
     }))
 
     return res.status(200).json(users satisfies APIUser[])
+  }
+
+  @AuthMiddleware()
+  async getCurrentUser(req: AuthenticatedRequest, res: AppResponse) {
+    const user = req.getUser()
+
+    return res.status(200).json({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      actived: !!user.passwordHash,
+    } satisfies APIUser)
   }
 
   @BodyMiddleware(EditUserBody)
