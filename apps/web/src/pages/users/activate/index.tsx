@@ -1,6 +1,7 @@
 import { type ChangeEvent, type SubmitEvent, useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import { getApiUrl } from '../../../helpers/api-url'
+import { pcall } from '../../../utils/pcall'
 
 export function ActivateAccount() {
   const [name, setName] = useState('')
@@ -77,14 +78,14 @@ export function ActivateAccount() {
       formData.append('avatar', avatar as Blob, `avatar.${avatar.name.split('.').pop()}`)
     }
 
-    const data = await fetch(getApiUrl('/users/activate_account'), {
+    const response = await fetch(getApiUrl('/users/activate_account'), {
       method: 'POST',
       body: formData,
     })
 
-    if(!data.ok) {
-      const errorData = await data.json()
-      alert(`Erro ao ativar conta${errorData.message ? `: ${errorData.message}` : ''}`)
+    if(!response.ok) {
+      const [_error, data] = await pcall(() => response.json())
+      alert(`Erro ao ativar conta${data?.message ? `: ${data.message}` : ''}`)
       return
     }
 

@@ -2,6 +2,7 @@ import { Application, Express, Router } from 'express'
 
 import { UsersController } from '@/controllers/users-controller'
 import { uploadMiddleware } from '@/middleware/upload-middleware'
+import { AuthController } from '@/controllers/auth-controller'
 
 export const setupRoutes = (app: Express) => {
   const usersRouter = Router()
@@ -14,6 +15,13 @@ export const setupRoutes = (app: Express) => {
 
   usersRouter.head('/verify_activation_token', usersController.verifyActivationToken.bind(usersController) as Application)
   usersRouter.post('/activate_account', uploadMiddleware.single('avatar'), usersController.activateAccount.bind(usersController) as Application)
+
+  const authRouter = Router()
+  const authController = new AuthController()
+
+  authRouter.post('/sign-in', authController.signIn.bind(authController) as Application)
   
-  app.use('/users', usersRouter)
+  app
+    .use('/users', usersRouter)
+    .use('/auth', authRouter)
 }

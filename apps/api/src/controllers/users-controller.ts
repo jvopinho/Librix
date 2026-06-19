@@ -14,7 +14,7 @@ import { CreateUserBody } from '@/schemas/create-user'
 import { APIUser } from '@librix/types'
 import { EditUserBody } from '@/schemas/edit-user'
 import { Op } from 'sequelize'
-import { UserFeatures } from '@librix/flags'
+import { UserFeatures, UserFeaturesByRole } from '@librix/flags'
 
 export class UsersController {
   // @AuthMiddleware({ features: ['create:users'] })
@@ -227,8 +227,13 @@ export class UsersController {
 
     const passwordHash = await bcrypt.hash(body.password, env.PASSWORD_SALT_ROUNDS)
 
+    features.remove('read:activation_token')
+
+    features.add(UserFeaturesByRole.COMMON)
+
     await user.update({
       passwordHash,
+      features: features.bits,
     })
 
     await invitation.destroy()
