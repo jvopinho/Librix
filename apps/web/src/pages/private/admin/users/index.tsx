@@ -230,6 +230,7 @@ export function AdminUsersPage() {
         const newUser: APIUser = {
           id: data.id,
           name: data.name,
+          avatar: data.avatar,
           email: data.email,
           actived: data.actived,
         }

@@ -67,6 +67,7 @@ export class UsersController {
     return res.status(201).json({
       id: user.id,
       name: user.name,
+      avatar: user.avatar,
       email: user.email,
       actived: false,
     } satisfies APIUser)
@@ -78,6 +79,7 @@ export class UsersController {
     const users: APIUser[] = usersData.map(user => ({
       id: user.id,
       name: user.name,
+      avatar: user.avatar,
       email: user.email,
       actived: !!user.passwordHash,
     }))
@@ -92,6 +94,7 @@ export class UsersController {
     return res.status(200).json({
       id: user.id,
       name: user.name,
+      avatar: user.avatar,
       email: user.email,
       actived: !!user.passwordHash,
     } satisfies APIUser)
@@ -135,6 +138,7 @@ export class UsersController {
     return res.status(200).json({
       id: user.id,
       name: user.name,
+      avatar: user.avatar,
       email: user.email,
       actived: !!user.passwordHash,
     } satisfies APIUser)
@@ -247,6 +251,7 @@ export class UsersController {
     await user.update({
       passwordHash,
       features: features.bits,
+      avatar: file ? file.filename : null
     })
 
     await invitation.destroy()

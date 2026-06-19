@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors'
+import path from 'node:path'
 
 import { setupRoutes } from './routes'
 import { env } from '@/env'
@@ -16,6 +17,7 @@ app.use(cors({
   credentials: true,
 }))
 
+app.use('/thumbnails', express.static(path.join(process.cwd(), 'thumbnails')))
 app.get('/', (req, res) => {
   res.send('Hello, World!')
 })

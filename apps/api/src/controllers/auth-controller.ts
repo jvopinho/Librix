@@ -53,6 +53,7 @@ export class AuthController {
             user: {
                 id: user.id,
                 name: user.name,
+                avatar: user.avatar,
                 email: user.email,
                 features: user.features,
             },

@@ -16,6 +16,8 @@ export class User extends Model<
 
   declare name: string
 
+  declare avatar: string | null
+
   declare email: string
 
   declare passwordHash: string | null
@@ -47,6 +49,10 @@ User.init(
       type: DataTypes.BIGINT,
       allowNull: false,
       defaultValue: 0,
+    },
+    avatar: {
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
   },
   {
