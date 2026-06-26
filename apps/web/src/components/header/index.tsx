@@ -98,9 +98,9 @@ export function Header() {
                                 {user.name}
                             </span>
 
-                            {user.name === 'a' ? (
+                            {user.avatar ? (
                                 <img
-                                    src={getApiUrl(`/thumbnails/${user.id}`)}
+                                    src={getApiUrl(`/thumbnails/${user.avatar}`)}
                                     alt={user.name}
                                     className={styles.avatar}
                                 />

@@ -1,0 +1,215 @@
+@import '../../styles/variables.scss';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    position: relative;
+
+    color: $text-primary;
+
+    label {
+        color: $text-primary;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    input {
+        width: 100%;
+        height: 44px;
+
+        padding: 0 1rem;
+
+        border: 1px solid $border;
+        border-radius: 12px;
+
+        background: white;
+        color: $text-primary;
+
+        font-size: 0.95rem;
+        font-family: inherit;
+
+        box-sizing: border-box;
+
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+
+        &::placeholder {
+            color: $text-secondary;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: $primary;
+            box-shadow: 0 0 0 3px rgba(37, 50, 89, 0.08);
+        }
+    }
+}
+
+.dropdown {
+    position: absolute;
+
+    top: 84px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    max-height: 240px;
+
+    overflow-y: auto;
+
+    background: white;
+    color: $text-primary;
+
+    border: 1px solid $border;
+    border-radius: 14px;
+
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+
+    z-index: 20;
+
+    animation: dropdownFade 0.15s ease;
+
+    button {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        padding: 0.875rem 1rem;
+
+        border: none;
+
+        background: transparent;
+        color: inherit;
+
+        text-align: left;
+        font-size: 0.9rem;
+        font-family: inherit;
+
+        cursor: pointer;
+
+        transition: background 0.2s ease;
+
+        &:hover {
+            background: #f8fafc;
+        }
+
+        &:focus-visible {
+            outline: none;
+            background: #f8fafc;
+        }
+
+        svg {
+            flex-shrink: 0;
+        }
+    }
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    min-height: 2rem;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    max-width: 100%;
+
+    padding: 0.45rem 0.75rem;
+
+    border-radius: 999px;
+
+    background: $primary-light;
+    color: $primary;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+    span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0;
+
+        border: none;
+
+        background: transparent;
+        color: inherit;
+
+        cursor: pointer;
+
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        svg {
+            flex-shrink: 0;
+        }
+    }
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .dropdown {
+        max-height: 200px;
+    }
+
+    .chip {
+        font-size: 0.8rem;
+
+        padding: 0.4rem 0.65rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dropdown {
+        position: fixed;
+
+        left: 1rem;
+        right: 1rem;
+
+        top: auto;
+
+        max-height: 50vh;
+    }
+
+    .chip {
+        width: fit-content;
+        max-width: 100%;
+    }
+}
